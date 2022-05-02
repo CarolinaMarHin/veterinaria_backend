@@ -1,11 +1,13 @@
 package com.ceiba.mascota.modelo.entidad;
 
 
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class Mascota {
@@ -32,7 +34,7 @@ public class Mascota {
         validarObligatorio(nombreMascota, SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_MASCOTA);
         validarObligatorio(raza, SE_DEBE_INGRESAR_LA_RAZA_DE_LA_MASCOTA);
         validarObligatorio(fechaNacimientoMascota, SE_DEBESE_DEBE_INGRESAR_LA_FECHA_DE_NACIMIENTO_DE_LA_MASCOTA);
-        validarObligatorio(peso, SE_DEBE_INGRESAR_EL_PESO_DE_LA_MASCOTA);
+        validarPeso(peso, SE_DEBE_INGRESAR_EL_PESO_DE_LA_MASCOTA);
 
         this.id = id;
         this.codigoMascota = codigoMascota;
@@ -40,6 +42,12 @@ public class Mascota {
         this.raza = raza;
         this.fechaNacimientoMascota = fechaNacimientoMascota;
         this.peso = peso;
+    }
+
+    private static void validarPeso(int peso, String mensaje) {
+        if (peso == 0) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
     }
 
 }

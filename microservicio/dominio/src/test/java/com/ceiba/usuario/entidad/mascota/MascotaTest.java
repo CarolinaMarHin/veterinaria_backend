@@ -2,6 +2,7 @@ package com.ceiba.usuario.entidad.mascota;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.mascota.modelo.entidad.Mascota;
 import com.ceiba.usuario.modelo.entidad.Usuario;
@@ -55,5 +56,30 @@ public class MascotaTest {
                     mascotaTestDataBuilder.build();
                 },
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de nacimiento");
+    }
+
+    @Test
+    void deberiaFallarSinCodigoMascota() {
+
+        //Arrange
+        MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conCodigoMascota(null).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    mascotaTestDataBuilder.build();
+                },
+                ExcepcionValorObligatorio.class, "Se debe ingresar el codigo de la mascota");
+    }
+
+
+    @Test
+    void deberiaFallarSinPeso() {
+
+        //Arrange
+        MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conPeso(0).conId(1L);
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    mascotaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "Se debe ingresar el peso de la mascota");
     }
 }
