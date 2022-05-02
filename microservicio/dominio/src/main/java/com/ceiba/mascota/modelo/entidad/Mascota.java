@@ -4,7 +4,6 @@ package com.ceiba.mascota.modelo.entidad;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
