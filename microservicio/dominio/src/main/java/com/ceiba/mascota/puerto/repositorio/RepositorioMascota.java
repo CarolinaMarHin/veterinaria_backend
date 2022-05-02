@@ -2,7 +2,7 @@ package com.ceiba.mascota.puerto.repositorio;
 
 import com.ceiba.mascota.modelo.entidad.Mascota;
 
-public interface RepositorioMacota {
+public interface RepositorioMascota {
 
     Long crear(Mascota mascota);
 

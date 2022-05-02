@@ -1,16 +1,16 @@
 package com.ceiba.mascota.servicio;
 
-import com.ceiba.mascota.puerto.repositorio.RepositorioMacota;
+import com.ceiba.mascota.puerto.repositorio.RepositorioMascota;
 
 public class ServicioEliminarMascota {
 
-    private final RepositorioMacota repositorioMacota;
+    private final RepositorioMascota repositorioMascota;
 
-    public ServicioEliminarMascota(RepositorioMacota repositorioMacota) {
-        this.repositorioMacota = repositorioMacota;
+    public ServicioEliminarMascota(RepositorioMascota repositorioMascota) {
+        this.repositorioMascota = repositorioMascota;
     }
 
     public void ejecutar(Long id) {
-        this.repositorioMacota.eliminar(id);
+        this.repositorioMascota.eliminar(id);
     }
 }

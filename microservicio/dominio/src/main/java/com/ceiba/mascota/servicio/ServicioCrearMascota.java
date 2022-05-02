@@ -2,17 +2,17 @@ package com.ceiba.mascota.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.mascota.modelo.entidad.Mascota;
-import com.ceiba.mascota.puerto.repositorio.RepositorioMacota;
+import com.ceiba.mascota.puerto.repositorio.RepositorioMascota;
 
 
 public class ServicioCrearMascota {
 
     private static final String LA_MASCOTA_YA_EXISTE_EN_EL_SISTEMA = "La mascota ya existe en el sistema";
 
-    private final RepositorioMacota repositorioUsuario;
+    private final RepositorioMascota repositorioUsuario;
 
-    public ServicioCrearMascota(RepositorioMacota repositorioMacota) {
-        this.repositorioUsuario = repositorioMacota;
+    public ServicioCrearMascota(RepositorioMascota repositorioMascota) {
+        this.repositorioUsuario = repositorioMascota;
     }
 
     public Long ejecutar(Mascota mascota) {

@@ -1,6 +1,6 @@
 package com.ceiba.configuracion;
 
-import com.ceiba.mascota.puerto.repositorio.RepositorioMacota;
+import com.ceiba.mascota.puerto.repositorio.RepositorioMascota;
 import com.ceiba.mascota.servicio.ServicioActualizarMascota;
 import com.ceiba.mascota.servicio.ServicioCrearMascota;
 import com.ceiba.mascota.servicio.ServicioEliminarMascota;
@@ -30,18 +30,18 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearMascota servicioCrearMascota(RepositorioMacota repositorioMacota) {
-        return new ServicioCrearMascota(repositorioMacota);
+    public ServicioCrearMascota servicioCrearMascota(RepositorioMascota repositorioMascota) {
+        return new ServicioCrearMascota(repositorioMascota);
     }
 
     @Bean
-    public ServicioEliminarMascota servicioEliminarMascota(RepositorioMacota repositorioMacota) {
-        return new ServicioEliminarMascota(repositorioMacota);
+    public ServicioEliminarMascota servicioEliminarMascota(RepositorioMascota repositorioMascota) {
+        return new ServicioEliminarMascota(repositorioMascota);
     }
 
     @Bean
-    public ServicioActualizarMascota servicioActualizarMascota(RepositorioMacota repositorioMacota) {
-        return new ServicioActualizarMascota(repositorioMacota);
+    public ServicioActualizarMascota servicioActualizarMascota(RepositorioMascota repositorioMascota) {
+        return new ServicioActualizarMascota(repositorioMascota);
     }
 
 
