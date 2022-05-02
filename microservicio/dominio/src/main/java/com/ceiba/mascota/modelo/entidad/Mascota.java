@@ -7,7 +7,6 @@ import lombok.Getter;
 import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
-import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class Mascota {

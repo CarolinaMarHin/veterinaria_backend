@@ -41,7 +41,6 @@ allprojects {
     project.ext.springbootundertow = ["org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"]
     project.ext.springbootjasypt = ['com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1']
 
-    // Se excluye JUnit 4
     configurations {
         runtime.exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

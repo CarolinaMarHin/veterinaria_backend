@@ -1,9 +1,7 @@
 package com.ceiba.usuario.servicio.testdatabuilder.cita;
 
 import com.ceiba.cita.modelo.entidad.Cita;
-import com.ceiba.mascota.modelo.entidad.Mascota;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class CitaTestDataBuilder {

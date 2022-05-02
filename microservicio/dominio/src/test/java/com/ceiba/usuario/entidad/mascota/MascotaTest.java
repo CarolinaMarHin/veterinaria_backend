@@ -1,12 +1,9 @@
 package com.ceiba.usuario.entidad.mascota;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.mascota.modelo.entidad.Mascota;
-import com.ceiba.usuario.modelo.entidad.Usuario;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import com.ceiba.usuario.servicio.testdatabuilder.mascota.MascotaTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,11 +18,8 @@ public class MascotaTest {
     @Test
     @DisplayName("Deberia crear correctamente la mascota")
     void deberiaCrearCorrectamenteLaMascota() {
-        // arrange
         LocalDate fechaNacimientoMascota = LocalDate.from(LocalDateTime.now());
-        //act
         Mascota mascota = new MascotaTestDataBuilder().conFechaNacimientoMascota(fechaNacimientoMascota).conId(1L).build();
-        //assert
         assertEquals(1, mascota.getId());
         assertEquals("Titan", mascota.getNombreMascota());
         assertEquals("4d0dd56-6", mascota.getCodigoMascota());
@@ -36,10 +30,7 @@ public class MascotaTest {
 
     @Test
     void deberiaFallarSinNombreDeMascota() {
-
-        //Arrange
         MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conNombreMascota(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     mascotaTestDataBuilder.build();
                 },
@@ -48,10 +39,7 @@ public class MascotaTest {
 
     @Test
     void deberiaFallarSinFechaNaciemiento() {
-
-        //Arrange
         MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conFechaNacimientoMascota(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     mascotaTestDataBuilder.build();
                 },
@@ -60,10 +48,7 @@ public class MascotaTest {
 
     @Test
     void deberiaFallarSinCodigoMascota() {
-
-        //Arrange
         MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conCodigoMascota(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     mascotaTestDataBuilder.build();
                 },
@@ -73,10 +58,7 @@ public class MascotaTest {
 
     @Test
     void deberiaFallarSinPeso() {
-
-        //Arrange
         MascotaTestDataBuilder mascotaTestDataBuilder = new MascotaTestDataBuilder().conPeso(0).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     mascotaTestDataBuilder.build();
                 },

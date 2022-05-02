@@ -17,11 +17,8 @@ public class UsuarioTest {
     @Test
     @DisplayName("Deberia crear correctamente el usuario")
     void deberiaCrearCorrectamenteElUsusuario() {
-        // arrange
         LocalDateTime fechaCreacion = LocalDateTime.now();
-        //act
         Usuario usuario = new UsuarioTestDataBuilder().conFechaCreacion(fechaCreacion).conId(1L).build();
-        //assert
         assertEquals(1, usuario.getId());
         assertEquals("1234", usuario.getNombre());
         assertEquals("1234", usuario.getClave());
@@ -30,10 +27,7 @@ public class UsuarioTest {
 
     @Test
     void deberiaFallarSinNombreDeUsuario() {
-
-        //Arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conNombre(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
@@ -42,10 +36,7 @@ public class UsuarioTest {
 
     @Test
     void deberiaFallarSinClave() {
-
-        //Arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
@@ -54,10 +45,7 @@ public class UsuarioTest {
 
     @Test
     void deberiaFallarSinTamanioClave() {
-
-        //Arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conClave("123").conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
@@ -66,15 +54,10 @@ public class UsuarioTest {
 
     @Test
     void deberiaFallarSinFechaCreacion() {
-
-        //Arrange
         UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conFechaCreacion(null).conId(1L);
-        //act-assert
         BasePrueba.assertThrows(() -> {
                     usuarioTestDataBuilder.build();
                 },
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
     }
-
-
 }

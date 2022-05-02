@@ -1,11 +1,9 @@
 package com.ceiba.usuario.servicio.testdatabuilder.mascota;
 
 import com.ceiba.mascota.modelo.entidad.Mascota;
-import com.ceiba.usuario.modelo.entidad.Usuario;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class MascotaTestDataBuilder {
 
