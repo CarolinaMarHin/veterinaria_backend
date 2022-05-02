@@ -34,9 +34,7 @@ class ComandoControladorUsuarioTest {
     @Test
     @DisplayName("Deberia crear un usuario")
     void deberiaCrearUnUsuario() throws Exception {
-        // arrange
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
-        // act - assert
         mocMvc.perform(post("/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(usuario)))
@@ -47,10 +45,8 @@ class ComandoControladorUsuarioTest {
     @Test
     @DisplayName("Deberia actualizar un usuario")
     void deberiaActualizarUnUsuario() throws Exception {
-        // arrange
         Long id = 1L;
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
-        // act - assert
         mocMvc.perform(put("/usuarios/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(usuario)))
@@ -60,9 +56,7 @@ class ComandoControladorUsuarioTest {
     @Test
     @DisplayName("Deberia eliminar un usuario")
     void deberiaEliminarUnUsuario() throws Exception {
-        // arrange
         Long id = 1L;
-        // act - assert
         mocMvc.perform(delete("/usuarios/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))

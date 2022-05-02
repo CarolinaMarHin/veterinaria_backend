@@ -39,9 +39,7 @@ class ConsultaControladorMascotaTest {
     @Test
     @DisplayName("Deberia listar mascotas")
     void deberiaListarMascotras() throws Exception {
-        // arrange
-        // act - assert
-        mocMvc.perform(get("/mascotas")
+       mocMvc.perform(get("/mascotas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))

@@ -15,26 +15,21 @@ public class ServicioActualizarMascotaTest {
     @Test
     @DisplayName("Deberia validar la existencia previa de la mascota")
     void deberiaValidarLaExistenciaPreviaDelaMascota() {
-        // arrange
         Mascota mascota = new MascotaTestDataBuilder().conId(1L).build();
         RepositorioMascota repositorioMascota = Mockito.mock(RepositorioMascota.class);
         Mockito.when(repositorioMascota.existePorId(Mockito.anyLong())).thenReturn(false);
         ServicioActualizarMascota servicioActualizarMascota = new ServicioActualizarMascota(repositorioMascota);
-        // act - assert
         BasePrueba.assertThrows(() -> servicioActualizarMascota.ejecutar(mascota), ExcepcionDuplicidad.class, "La mascota no existe en el sistema");
     }
 
     @Test
     @DisplayName("Deberia actualizar correctamente en el repositorio")
     void deberiaActualizarCorrectamenteEnElRepositorio() {
-        // arrange
         Mascota mascota = new MascotaTestDataBuilder().conId(1L).build();
         RepositorioMascota repositorioMascota = Mockito.mock(RepositorioMascota.class);
         Mockito.when(repositorioMascota.existePorId(Mockito.anyLong())).thenReturn(true);
         ServicioActualizarMascota servicioActualizarUsuario = new ServicioActualizarMascota(repositorioMascota);
-        // act
         servicioActualizarUsuario.ejecutar(mascota);
-        //assert
         Mockito.verify(repositorioMascota, Mockito.times(1)).actualizar(mascota);
     }
 }

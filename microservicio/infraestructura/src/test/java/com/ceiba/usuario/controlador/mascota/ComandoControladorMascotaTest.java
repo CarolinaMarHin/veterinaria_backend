@@ -35,9 +35,7 @@ class ComandoControladorMascotaTest {
     @Test
     @DisplayName("Deberia crear una mascota")
     void deberiaCrearUnMascota() throws Exception {
-        // arrange
         ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
-        // act - assert
         mocMvc.perform(post("/mascotas")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(mascota)))
@@ -48,10 +46,8 @@ class ComandoControladorMascotaTest {
     @Test
     @DisplayName("Deberia actualizar una mascota")
     void deberiaActualizarUnMascota() throws Exception {
-        // arrange
         Long codigoMascota = 1L;
         ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
-        // act - assert
         mocMvc.perform(put("/mascotas/{codigoMascota}", codigoMascota)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(mascota)))
@@ -61,9 +57,7 @@ class ComandoControladorMascotaTest {
     @Test
     @DisplayName("Deberia eliminar una mascota")
     void deberiaEliminarUnMascota() throws Exception {
-        // arrange
         Long codigoMascota = 1L;
-        // act - assert
         mocMvc.perform(delete("/mascotas/{codigoMascota}", codigoMascota)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
