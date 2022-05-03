@@ -3,6 +3,7 @@ package com.ceiba.usuario.servicio.testdatabuilder.cita;
 import com.ceiba.cita.modelo.entidad.Cita;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public class CitaTestDataBuilder {
 
@@ -39,11 +40,6 @@ public class CitaTestDataBuilder {
 
     public CitaTestDataBuilder conCodigoServicio(Long codigoServicio) {
         this.codigoServicio = codigoServicio;
-        return this;
-    }
-
-    public CitaTestDataBuilder conTotalPago(double totalPago) {
-        this.totalPago = totalPago;
         return this;
     }
 

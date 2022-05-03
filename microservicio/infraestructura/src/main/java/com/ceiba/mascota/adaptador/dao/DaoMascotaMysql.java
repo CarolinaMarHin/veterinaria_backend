@@ -34,10 +34,8 @@ public class DaoMascotaMysql implements DaoMascota {
 
     @Override
     public DtoMascota listarPorId(Long idMascota) {
-
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idMascota", idMascota);
-
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlListarMascotaPorId,
                 paramSource, new MapeoMascota());
     }

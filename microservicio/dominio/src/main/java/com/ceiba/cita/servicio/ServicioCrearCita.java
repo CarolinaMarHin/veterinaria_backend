@@ -25,7 +25,6 @@ public class ServicioCrearCita {
     public ServicioCrearCita(RepositorioCita repositorioMascota, DaoMascota daoMascota, DaoCita daoCita) {
         this.repositorioCita = repositorioMascota;
         this.daoMascota = daoMascota;
-
         this.daoCita = daoCita;
     }
 
