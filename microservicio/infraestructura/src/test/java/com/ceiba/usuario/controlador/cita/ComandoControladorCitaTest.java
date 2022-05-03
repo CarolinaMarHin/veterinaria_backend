@@ -42,7 +42,7 @@ class ComandoControladorCitaTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(cita)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
+                .andExpect(content().json("{'valor': 5}"));
     }
 
     @Test
@@ -68,7 +68,7 @@ class ComandoControladorCitaTest {
         mocMvc.perform(get("/citas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
+                .andExpect(jsonPath("$", hasSize(3)));
     }
 
 }

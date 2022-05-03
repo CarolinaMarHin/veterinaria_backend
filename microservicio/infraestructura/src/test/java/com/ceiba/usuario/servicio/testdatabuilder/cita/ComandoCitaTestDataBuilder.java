@@ -18,7 +18,7 @@ public class ComandoCitaTestDataBuilder {
 
     public ComandoCitaTestDataBuilder() {
         codigoMascota = 1L;
-        idVeterinario = 1L;
+        idVeterinario = 2L;
         codigoServicio = 1L;
         totalPago = 33000;
         fecha = LocalDateTime.now();

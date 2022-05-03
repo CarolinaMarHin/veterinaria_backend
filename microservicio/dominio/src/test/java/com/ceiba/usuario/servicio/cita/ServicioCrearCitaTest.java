@@ -73,23 +73,4 @@ public class ServicioCrearCitaTest {
         Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
         assertEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
     }
-
-    /*@Test
-    @DisplayName("Deberia dejar gratis el sexto baño")
-    void deberiaDejarElBañoGratisAlLLegarAlSexto() {
-        Cita cita = new CitaTestDataBuilder().build();
-        List<DtoCita> dtoCitas = new ArrayList<>();
-        for (int i = 0; i < 4 ; i ++) {
-            DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina",
-                    "Servicio banio", 130000, LocalDateTime.now());
-            dtoCitas.add(dtoCita);
-        }
-        RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
-        DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
-        DaoCita daoCita = Mockito.mock(DaoCita.class);
-        Mockito.when(repositorioCita.existe(Mockito.anyLong())).thenReturn(false);
-        Mockito.when(daoCita.listarCitasPorIdMascota(Mockito.eq(cita.getCodigoMascota()))).thenReturn(dtoCitas);
-        ServicioCrearCita servicioCrearCita = new ServicioCrearCita(repositorioCita, daoMascota, daoCita);
-        BasePrueba.assertThrows(() -> servicioCrearCita.ejecutar(cita), ExcepcionValorInvalido.class, "El veterinario no puede ser asignado por que ya cumplio la cantidad permitida");
-    }*/
 }
