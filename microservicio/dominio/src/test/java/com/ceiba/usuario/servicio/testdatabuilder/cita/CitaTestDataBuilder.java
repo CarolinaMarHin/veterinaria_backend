@@ -14,7 +14,6 @@ public class CitaTestDataBuilder {
     private double totalPago;
     LocalDateTime fecha;
 
-
     public CitaTestDataBuilder() {
         codigoMascota = 1L;
         idVeterinario = 1L;

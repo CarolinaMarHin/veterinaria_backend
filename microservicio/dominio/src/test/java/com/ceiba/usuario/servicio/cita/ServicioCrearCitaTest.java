@@ -35,11 +35,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServicioCrearCitaTest {
 
     @Test
-    @DisplayName("Deberia lanzar una exepcion cuando el veterinario tenga mas de 4 citas")
+    @DisplayName("Deberia lanzar una excepcion cuando el veterinario tenga mas de 4 citas")
     void deberiaLanzarUnaExepcionCuandoVeterinarioTengaMasDeCuatroAlDia() {
         Cita cita = new CitaTestDataBuilder().build();
         List<DtoCita> dtoCitas = new ArrayList<>();
-        for (int i = 0; i < 5 ; i ++) {
+        for (int i = 0; i < 4 ; i ++) {
             DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina",
                     "Servicio banio", 130000, LocalDateTime.now());
             dtoCitas.add(dtoCita);
