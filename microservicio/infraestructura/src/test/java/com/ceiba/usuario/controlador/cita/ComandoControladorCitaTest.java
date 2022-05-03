@@ -34,7 +34,18 @@ class ComandoControladorCitaTest {
     @Autowired
     private MockMvc mocMvc;
 
-    /*@Test
+    @Test
+    @DisplayName("Deberia crear una cita")
+    void deberiaCrearUnCitaa() throws Exception {
+        ComandoCita cita = new ComandoCitaTestDataBuilder().build();
+        mocMvc.perform(post("/citas")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(cita)))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'valor': 2}"));
+    }
+
+    @Test
     @DisplayName("Deberia actualizar una cita")
     void deberiaActualizarUnaCita() throws Exception {
         Long id = 1L;
@@ -43,7 +54,7 @@ class ComandoControladorCitaTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(cita)))
                 .andExpect(status().isOk());
-    }*/
+    }
 
     @Test
     @DisplayName("Deberia eliminar una cita")
