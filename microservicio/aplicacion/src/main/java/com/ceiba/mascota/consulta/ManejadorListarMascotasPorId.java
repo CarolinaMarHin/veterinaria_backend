@@ -13,7 +13,7 @@ public class ManejadorListarMascotasPorId {
         this.daoMascota = daoMascota;
     }
 
-    public DtoMascota ejecutar(Long id) {
-        return this.daoMascota.listarPorId(id);
+    public DtoMascota ejecutar(Long idMascota) {
+        return this.daoMascota.listarPorId(idMascota);
     }
 }

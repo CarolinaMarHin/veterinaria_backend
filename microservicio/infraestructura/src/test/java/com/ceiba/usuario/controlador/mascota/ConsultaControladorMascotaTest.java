@@ -32,8 +32,16 @@ class ConsultaControladorMascotaTest {
     @DisplayName("Deberia listar por codigo de mascota")
     void deberiaListarPorCodigoMascota() throws Exception {
         String codigoMascota = "1234";
-       mocMvc.perform(get("/mascotas/{codigoMascota}", codigoMascota).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+        mocMvc.perform(get("/mascotas/{codigoMascota}", codigoMascota).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
             .andExpect(jsonPath("$.nombreMascota", is("Titan")));
+    }
+
+    @Test
+    @DisplayName("Deberia listar por id de mascota")
+    void deberiaListarPorIdMascota() throws Exception {
+        Long idMascota = 1L;
+        mocMvc.perform(get("/mascotas/obtenerId/{idMascota}", idMascota).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+                .andExpect(jsonPath("$.nombreMascota", is("Titan")));
     }
 
     @Test

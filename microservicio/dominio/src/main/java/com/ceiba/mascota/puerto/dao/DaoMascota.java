@@ -8,7 +8,7 @@ public interface DaoMascota {
 
     List<DtoMascota> listar();
 
-    DtoMascota listarPorId(Long id);
+    DtoMascota listarPorId(Long idMascota);
 
     DtoMascota listarPorCodigoMascota(String codigoMascota);
 }
