@@ -16,9 +16,7 @@ public class Cita {
     private static final String SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_MASCOTA = "Se debe ingresar el codigo de la mascota";
     private static final String SE_DEBE_INGRESAR_EL_CODIGO_DEL_VETERINARIO = "Se debe ingresar el codigo de veterinario";
     private static final String SE_DEBE_INGRESAR_EL_CODIGO_DE_SERVICIO = "Se debe ingresar el codigo de servicio";
-    private static final String SE_DEBESE_DEBE_INGRESAR_EL_VALOR_A_PAGAR = "Se debe ingresar el valor a pagar";
     private static final String SE_DEBE_INGRESAR_LA_FECHA = "Se debe ingresar la fecha";
-
     private static final String LO_SENTIMOS_NO_HAY_SERVICIO_LOS_FINES_DE_SEMANA= "Lo sentimos, no hay servicio los fines de semana";
 
     private Long id;
@@ -35,7 +33,6 @@ public class Cita {
         validarObligatorio(codigoMascota,SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_MASCOTA);
         validarObligatorio(idVeterinario,SE_DEBE_INGRESAR_EL_CODIGO_DEL_VETERINARIO);
         validarObligatorio(codigoServicio,SE_DEBE_INGRESAR_EL_CODIGO_DE_SERVICIO);
-        validarPositivo(totalPago,SE_DEBESE_DEBE_INGRESAR_EL_VALOR_A_PAGAR);
         validarObligatorio(fecha,SE_DEBE_INGRESAR_LA_FECHA);
 
         validarEsFinDeSenama(fecha);

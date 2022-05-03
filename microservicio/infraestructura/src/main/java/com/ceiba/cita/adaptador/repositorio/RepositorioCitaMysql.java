@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RepositorioCitaMysql implements RepositorioCita {
-
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "cita", value = "crear")
@@ -26,12 +25,6 @@ public class RepositorioCitaMysql implements RepositorioCita {
 
     @SqlStatement(namespace = "cita", value = "existePorId")
     private static String sqlExistePorIdCita;
-
-    @SqlStatement(namespace = "cita", value = "aplicaBanioGratis")
-    private static String sqlAplicaBanioGratis;
-
-    @SqlStatement(namespace = "cita", value = "cantidadCitasAsignadasVeterinario")
-    private static String sqlCantidadCitasAsignadasVeterinario;
 
     public RepositorioCitaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -54,24 +47,6 @@ public class RepositorioCitaMysql implements RepositorioCita {
         paramSource.addValue("id", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarCita, paramSource);
-    }
-
-    @Override
-    public boolean aplicaBanioGratis(Long codigoMascota) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("codigoMascota", codigoMascota);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
-                .queryForObject(sqlAplicaBanioGratis, paramSource, Boolean.class);
-    }
-
-    @Override
-    public boolean cantidadCitasAsignadasVeterinario(Long idVeterinario) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("idVeterinario", idVeterinario);
-
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
-                .queryForObject(sqlCantidadCitasAsignadasVeterinario, paramSource, Boolean.class);
     }
 
     @Override

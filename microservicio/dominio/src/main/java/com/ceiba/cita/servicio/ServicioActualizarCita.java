@@ -5,7 +5,6 @@ import com.ceiba.cita.puerto.repositorio.RepositorioCita;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
 public class ServicioActualizarCita {
-
     private static final String LA_CITA_NO_EXISTE_EN_EL_SISTEMA = "La cita no existe en el sistema";
 
     private final RepositorioCita repositorioCita;

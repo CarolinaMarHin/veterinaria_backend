@@ -56,15 +56,6 @@ public class CitaTest {
     }
 
     @Test
-    void deberiaFallarSinTotalPago() {
-        CitaTestDataBuilder citaTestDataBuilder = new CitaTestDataBuilder().conTotalPago(0).conId(1L);
-        BasePrueba.assertThrows(() -> {
-                    citaTestDataBuilder.build();
-                },
-                ExcepcionValorInvalido.class, "Se debe ingresar el valor a pagar");
-    }
-
-    @Test
     void deberiaFallarSinFecha() {
         CitaTestDataBuilder citaTestDataBuilder = new CitaTestDataBuilder().conFecha(null).conId(1L);
         BasePrueba.assertThrows(() -> {

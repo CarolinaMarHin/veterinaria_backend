@@ -12,10 +12,6 @@ public interface RepositorioCita {
 
     boolean existe(Long codigoMascota);
 
-    boolean aplicaBanioGratis(Long id);
-
-    boolean cantidadCitasAsignadasVeterinario(Long idVeterinario);
-
     boolean existePorId(Long id);
 
 }

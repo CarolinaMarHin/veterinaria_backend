@@ -7,6 +7,7 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -20,6 +21,13 @@ public class DaoCitaMysql implements DaoCita {
     @SqlStatement(namespace = "cita", value = "listarPorId")
     private static String sqlListarCitaPorId;
 
+
+    @SqlStatement(namespace = "cita", value = "listarCitasPorVeterinario")
+    private static String sqllistarCitaPorVeterinario;
+
+    @SqlStatement(namespace = "cita", value = "listarCitasPorIdMascota")
+    private static String sqllistarCitasIdMascota;
+
     public DaoCitaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -27,6 +35,25 @@ public class DaoCitaMysql implements DaoCita {
     @Override
     public List<DtoCita> listar() {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarCita, new MapeoCita());
+    }
+
+    @Override
+    public List<DtoCita> listarCitasPorVeterinario(Long idVeterinario, LocalDateTime fecha) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idVeterinario", idVeterinario);
+        paramSource.addValue("fecha", fecha);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqllistarCitaPorVeterinario,
+                paramSource, new MapeoCita());
+    }
+
+    @Override
+    public List<DtoCita> listarCitasPorIdMascota(Long codigoMascota) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("codigoMascota", codigoMascota);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqllistarCitasIdMascota,
+                paramSource, new MapeoCita());
     }
 
     @Override
