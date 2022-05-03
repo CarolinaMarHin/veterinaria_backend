@@ -35,7 +35,6 @@ public class ConsultaControladorCita {
     @GetMapping(value = "/{id}")
     @ApiOperation("Listar cita")
     public DtoCita listarPorCodigoMascota(@PathVariable Long id) {
-        DtoCita cita = this.manejadorListarCitaPorId.ejecutar(id);
         return this.manejadorListarCitaPorId.ejecutar(id);
     }
 
