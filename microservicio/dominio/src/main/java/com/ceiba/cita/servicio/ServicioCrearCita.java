@@ -15,9 +15,7 @@ public class ServicioCrearCita {
     private static final String LA_CITA_YA_EXISTE_EN_EL_SISTEMA = "La Cita ya existe en el sistema";
     private static final String EL_VETERINARIO_NO_PUEDE_SER_ASIGNADO = "El veterinario no puede ser asignado por que ya cumplio la cantidad permitida";
 
-    private static final int CITAS_PERMITIDAS_POR_VETERINARIO_AL_DIA = 4;
     private static final int PORCENTAJE_DESCUENTO_POR_CUMPLEANIOS = 15;
-    private static final int NUMERO_DE_BANIOS = 6;
 
     private final RepositorioCita repositorioCita;
     private final DaoMascota daoMascota;
@@ -25,6 +23,7 @@ public class ServicioCrearCita {
     public ServicioCrearCita(RepositorioCita repositorioMascota, DaoMascota daoMascota) {
         this.repositorioCita = repositorioMascota;
         this.daoMascota = daoMascota;
+
     }
 
     public Long ejecutar(Cita cita) {
@@ -52,9 +51,8 @@ public class ServicioCrearCita {
 
     private Cita validarDiaDeBanioGratis(Cita cita) {
         double totalPagarConDescuento = cita.getTotalPago();
-        int numeroBanios = repositorioCita.cantidadCitasTipoBanio(cita.getCodigoServicio());
 
-        if (numeroBanios == NUMERO_DE_BANIOS) {
+        if (repositorioCita.aplicaBanioGratis(cita.getCodigoServicio())) {
             totalPagarConDescuento = 0;
         }
         return new Cita(cita.getId(),
@@ -72,9 +70,8 @@ public class ServicioCrearCita {
     }
 
     private void validarCantidadDeCitasAsignadasVeterninario(Long idCita) {
-        int citasAsigandas = repositorioCita.cantidadCitasAsignadasVeterinario(idCita);
 
-        if (citasAsigandas > CITAS_PERMITIDAS_POR_VETERINARIO_AL_DIA) {
+        if (repositorioCita.cantidadCitasAsignadasVeterinario(idCita)) {
             throw new ExcepcionValorInvalido(EL_VETERINARIO_NO_PUEDE_SER_ASIGNADO);
         }
     }

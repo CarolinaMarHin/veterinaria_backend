@@ -1,0 +1,1 @@
+select count(4) from cita where id_veterinario = :idVeterinario

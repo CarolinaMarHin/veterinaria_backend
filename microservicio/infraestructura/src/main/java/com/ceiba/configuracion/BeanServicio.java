@@ -1,5 +1,10 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.cita.puerto.repositorio.RepositorioCita;
+import com.ceiba.cita.servicio.ServicioActualizarCita;
+import com.ceiba.cita.servicio.ServicioCrearCita;
+import com.ceiba.cita.servicio.ServicioEliminarCita;
+import com.ceiba.mascota.puerto.dao.DaoMascota;
 import com.ceiba.mascota.puerto.repositorio.RepositorioMascota;
 import com.ceiba.mascota.servicio.ServicioActualizarMascota;
 import com.ceiba.mascota.servicio.ServicioCrearMascota;
@@ -44,5 +49,19 @@ public class BeanServicio {
         return new ServicioActualizarMascota(repositorioMascota);
     }
 
+    @Bean
+    public ServicioCrearCita servicioCrearCita(RepositorioCita repositorioCita, DaoMascota daoMascota) {
+        return new ServicioCrearCita(repositorioCita, daoMascota);
+    }
+
+    @Bean
+    public ServicioEliminarCita servicioEliminarCita(RepositorioCita repositorioCita) {
+        return new ServicioEliminarCita(repositorioCita);
+    }
+
+    @Bean
+    public ServicioActualizarCita servicioActualizarCita(RepositorioCita repositorioCita) {
+        return new ServicioActualizarCita(repositorioCita);
+    }
 
 }

@@ -12,9 +12,9 @@ public interface RepositorioCita {
 
     boolean existe(Long codigoMascota);
 
-    int cantidadCitasTipoBanio(Long id);
+    boolean aplicaBanioGratis(Long id);
 
-    int cantidadCitasAsignadasVeterinario(Long idVeterinario);
+    boolean cantidadCitasAsignadasVeterinario(Long idVeterinario);
 
     boolean existePorId(Long id);
 
