@@ -1,4 +1,4 @@
-package com.ceiba.usuario.controlador.mascota;
+package com.ceiba.usuario.controlador.cita;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.usuario.controlador.ConsultaControladorUsuario;
@@ -23,35 +23,27 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ConsultaControladorUsuario.class)
 @ContextConfiguration(classes = ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ConsultaControladorMascotaTest {
+class ConsultaControladorCitaTest {
 
     @Autowired
     private MockMvc mocMvc;
 
     @Test
-    @DisplayName("Deberia listar por codigo de mascota")
-    void deberiaListarPorCodigoMascota() throws Exception {
-        String codigoMascota = "1234";
-        mocMvc.perform(get("/mascotas/{codigoMascota}", codigoMascota).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-            .andExpect(jsonPath("$.nombreMascota", is("Titan")));
+    @DisplayName("Deberia listar por codigo de cita")
+    void deberiaListarPorIdCita() throws Exception {
+        Long codigoCita = 1L;
+        mocMvc.perform(get("/citas/{codigoCita}", codigoCita).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+            .andExpect(jsonPath("$.nombreMascota", is("Guardian")));
     }
 
     @Test
-    @DisplayName("Deberia listar por id de mascota")
-    void deberiaListarPorIdMascota() throws Exception {
-        Long idMascota = 1L;
-        mocMvc.perform(get("/mascotas/obtenerId/{idMascota}", idMascota).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-                .andExpect(jsonPath("$.nombreMascota", is("Titan")));
-    }
-
-    @Test
-    @DisplayName("Deberia listar mascotas")
-    void deberiaListarMascotas() throws Exception {
-       mocMvc.perform(get("/mascotas")
+    @DisplayName("Deberia listar citas")
+    void deberiaListarCitas() throws Exception {
+       mocMvc.perform(get("/citas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].nombreMascota", is("Titan")))
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].nombreMascota", is("Guardian")))
                 .andExpect(jsonPath("$[0].id", is(1)));
 
     }

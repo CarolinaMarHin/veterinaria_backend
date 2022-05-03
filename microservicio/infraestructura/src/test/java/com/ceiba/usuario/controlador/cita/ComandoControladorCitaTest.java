@@ -1,8 +1,10 @@
-package com.ceiba.mascota.controlador.mascota;
+package com.ceiba.usuario.controlador.cita;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.cita.comando.ComandoCita;
 import com.ceiba.mascota.comando.ComandoMascota;
 import com.ceiba.mascota.controlador.ComandoControladorMascota;
+import com.ceiba.usuario.servicio.testdatabuilder.cita.ComandoCitaTestDataBuilder;
 import com.ceiba.usuario.servicio.testdatabuilder.mascota.ComandoMascotaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ComandoControladorMascota.class)
 @ContextConfiguration(classes = ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ComandoControladorMascotaTest {
+class ComandoControladorCitaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -32,41 +34,30 @@ class ComandoControladorMascotaTest {
     @Autowired
     private MockMvc mocMvc;
 
-    @Test
-    @DisplayName("Deberia crear una mascota")
-    void deberiaCrearUnMascota() throws Exception {
-        ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
-        mocMvc.perform(post("/mascotas")
+    /*@Test
+    @DisplayName("Deberia actualizar una cita")
+    void deberiaActualizarUnaCita() throws Exception {
+        Long id = 1L;
+        ComandoCita cita = new ComandoCitaTestDataBuilder().build();
+        mocMvc.perform(put("/citas/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(mascota)))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 3}"));
-    }
-
-    @Test
-    @DisplayName("Deberia actualizar una mascota")
-    void deberiaActualizarUnMascota() throws Exception {
-        Long codigoMascota = 1L;
-        ComandoMascota mascota = new ComandoMascotaTestDataBuilder().build();
-        mocMvc.perform(put("/mascotas/{codigoMascota}", codigoMascota)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(mascota)))
+                        .content(objectMapper.writeValueAsString(cita)))
                 .andExpect(status().isOk());
-    }
+    }*/
 
     @Test
-    @DisplayName("Deberia eliminar una mascota")
-    void deberiaEliminarUnMascota() throws Exception {
-        Long codigoMascota = 1L;
-        mocMvc.perform(delete("/mascotas/{codigoMascota}", codigoMascota)
+    @DisplayName("Deberia eliminar una cita")
+    void deberiaEliminarUnaCita() throws Exception {
+        Long idCita = 1L;
+        mocMvc.perform(delete("/citas/{idCita}", idCita)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        mocMvc.perform(get("/mascotas")
+        mocMvc.perform(get("/citas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
 }
