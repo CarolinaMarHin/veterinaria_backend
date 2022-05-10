@@ -44,8 +44,8 @@ public class ServicioCrearCitaTest {
     }
 
     @Test
-    @DisplayName("Deberia realizar descuento si es el cumpleaños de la mascota")
-    void deberiaRealizarDescuentoPorCumpleañosDeLaMascota() {
+    @DisplayName("Deberia realizar descuento si es el cumpleanios de la mascota")
+    void deberiaRealizarDescuentoPorCumpleaniosDeLaMascota() {
         Cita cita = new CitaTestDataBuilder().build();
 
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
@@ -62,6 +62,27 @@ public class ServicioCrearCitaTest {
         Long idCita = servicioCrearCita.ejecutar(cita);
         Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
         assertEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
+    }
+
+    @Test
+    @DisplayName("No deberia realizar descuento si es el cumpleanios de la mascota")
+    void noDeberiaRealizarDescuentoPorCumpleaniosDeLaMascota() {
+        Cita cita = new CitaTestDataBuilder().build();
+
+        DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now());
+        DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
+                180000, LocalDateTime.now());
+
+        RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
+        DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
+        DaoCita daoCita = Mockito.mock(DaoCita.class);
+        Mockito.when(repositorioCita.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(daoMascota.listarPorId(Mockito.eq(cita.getCodigoMascota()))).thenReturn(dtoMascota);
+        ServicioCrearCita servicioCrearCita = new ServicioCrearCita(repositorioCita, daoMascota, daoCita);
+        Long idCita = servicioCrearCita.ejecutar(cita);
+        Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
+        assertNotEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
     }
 
     @Test
