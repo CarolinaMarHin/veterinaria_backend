@@ -1,0 +1,1 @@
+SELECT v.id, v.cedula_veterinario, v.nombre_veterinario FROM veterinario AS v;
