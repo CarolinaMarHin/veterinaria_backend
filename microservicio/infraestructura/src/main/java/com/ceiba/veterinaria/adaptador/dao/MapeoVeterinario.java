@@ -1,7 +1,6 @@
 package com.ceiba.veterinaria.adaptador.dao;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.servicio.modelo.dto.DtoServicio;
 import com.ceiba.veterinario.dto.DtoVeterinario;
 import org.springframework.jdbc.core.RowMapper;
 

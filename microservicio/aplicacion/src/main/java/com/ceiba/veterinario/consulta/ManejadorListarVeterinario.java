@@ -1,7 +1,5 @@
 package com.ceiba.veterinario.consulta;
 
-import com.ceiba.servicio.modelo.dto.DtoServicio;
-import com.ceiba.servicio.puerto.dao.DaoServicio;
 import com.ceiba.veterinario.dao.DaoVeterinario;
 import com.ceiba.veterinario.dto.DtoVeterinario;
 import org.springframework.stereotype.Component;

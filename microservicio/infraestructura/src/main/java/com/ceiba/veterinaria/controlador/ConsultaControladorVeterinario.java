@@ -1,7 +1,5 @@
 package com.ceiba.veterinaria.controlador;
 
-import com.ceiba.servicio.consulta.ManejadorListarServicio;
-import com.ceiba.servicio.modelo.dto.DtoServicio;
 import com.ceiba.veterinario.consulta.ManejadorListarVeterinario;
 import com.ceiba.veterinario.dto.DtoVeterinario;
 import io.swagger.annotations.Api;
