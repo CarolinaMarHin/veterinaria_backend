@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class ServicioCrearCitaTest {
 
@@ -100,7 +101,7 @@ public class ServicioCrearCitaTest {
             dtoCitas.add(dtoCita);
         }
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
-                0, LocalDateTime.now());
+                170000, LocalDateTime.now());
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
         Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 0, LocalDateTime.now());
         RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
@@ -112,7 +113,7 @@ public class ServicioCrearCitaTest {
         ServicioCrearCita servicioCrearCita = new ServicioCrearCita(repositorioCita, daoMascota, daoCita);
         Long idCita = servicioCrearCita.ejecutar(cita);
         Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
-        assertEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
+        assertNotEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
     }
 
     /*@Test
