@@ -1,13 +1,11 @@
 package com.ceiba.servicio.adaptador.dao;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.mascota.modelo.dto.DtoMascota;
 import com.ceiba.servicio.modelo.dto.DtoServicio;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class MapeoServicio implements RowMapper<DtoServicio>, MapperResult {
 

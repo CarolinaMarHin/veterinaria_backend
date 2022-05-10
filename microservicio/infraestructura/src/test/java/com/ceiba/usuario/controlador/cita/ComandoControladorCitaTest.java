@@ -2,10 +2,8 @@ package com.ceiba.usuario.controlador.cita;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.cita.comando.ComandoCita;
-import com.ceiba.mascota.comando.ComandoMascota;
 import com.ceiba.mascota.controlador.ComandoControladorMascota;
 import com.ceiba.usuario.servicio.testdatabuilder.cita.ComandoCitaTestDataBuilder;
-import com.ceiba.usuario.servicio.testdatabuilder.mascota.ComandoMascotaTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

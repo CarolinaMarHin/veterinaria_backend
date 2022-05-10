@@ -3,7 +3,6 @@ package com.ceiba.usuario.servicio.testdatabuilder.cita;
 import com.ceiba.cita.modelo.entidad.Cita;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 
 public class CitaTestDataBuilder {
 

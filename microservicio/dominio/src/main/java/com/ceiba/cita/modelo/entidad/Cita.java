@@ -8,7 +8,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
-import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class Cita {

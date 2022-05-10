@@ -1,7 +1,5 @@
 package com.ceiba.servicio.consulta;
 
-import com.ceiba.cita.modelo.dto.DtoCita;
-import com.ceiba.cita.puerto.dao.DaoCita;
 import com.ceiba.servicio.modelo.dto.DtoServicio;
 import com.ceiba.servicio.puerto.dao.DaoServicio;
 import org.springframework.stereotype.Component;

@@ -3,12 +3,9 @@ package com.ceiba.cita.servicio;
 import com.ceiba.cita.modelo.entidad.Cita;
 import com.ceiba.cita.puerto.dao.DaoCita;
 import com.ceiba.cita.puerto.repositorio.RepositorioCita;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.mascota.modelo.dto.DtoMascota;
 import com.ceiba.mascota.puerto.dao.DaoMascota;
-
-import java.time.LocalDate;
 
 
 public class ServicioCrearCita {
