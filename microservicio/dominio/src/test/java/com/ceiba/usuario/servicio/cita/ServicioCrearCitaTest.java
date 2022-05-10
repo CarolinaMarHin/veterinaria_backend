@@ -48,8 +48,8 @@ public class ServicioCrearCitaTest {
     void deberiaRealizarDescuentoPorCumpleaniosDeLaMascota() {
         Cita cita = new CitaTestDataBuilder().build();
 
-        DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now());
+        DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now().plusDays(2), 30);
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now().plusDays(2));
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 171000, LocalDateTime.now());
 
