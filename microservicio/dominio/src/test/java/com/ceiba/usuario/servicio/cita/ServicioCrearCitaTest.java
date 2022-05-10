@@ -69,7 +69,7 @@ public class ServicioCrearCitaTest {
     void deberiaDejarBañoSextoGratis() {
         Cita cita = new CitaTestDataBuilder().build();
         List<DtoCita> dtoCitas = new ArrayList<>();
-        for (int i = 0; i < 4 ; i ++) {
+        for (int i = 0; i < 5 ; i ++) {
             DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina",
                     "Servicio banio", 130000, LocalDateTime.now());
             dtoCitas.add(dtoCita);
