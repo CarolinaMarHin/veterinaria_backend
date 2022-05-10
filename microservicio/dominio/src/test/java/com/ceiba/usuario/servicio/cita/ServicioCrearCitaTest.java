@@ -99,4 +99,27 @@ public class ServicioCrearCitaTest {
         Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
         assertEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
     }
+
+    /*@Test
+    @DisplayName("Deberia Crear la cita de manera correcta")
+    void deberiaCrearLaCitaDeManeraCorrecta() {
+        Cita cita = new CitaTestDataBuilder().build();
+        List<DtoCita> dtoCitas = new ArrayList<>();
+        DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
+        DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina",
+                "Servicio banio", 130000, LocalDateTime.now());
+        dtoCitas.add(dtoCita);
+        RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
+        DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
+        DaoCita daoCita = Mockito.mock(DaoCita.class);
+        Mockito.when(repositorioCita.existe(Mockito.anyLong())).thenReturn(true);
+        Mockito.when(daoMascota.listarPorId(Mockito.eq(cita.getCodigoMascota()))).thenReturn(dtoMascota);
+        Mockito.when(daoCita.listarCitasPorVeterinario(Mockito.eq(cita.getIdVeterinario()), Mockito.eq(cita.getFecha()))).thenReturn(dtoCitas);
+        Mockito.when(repositorioCita.crear(cita)).thenReturn(0L);
+
+        ServicioCrearCita servicioCrearCita = new ServicioCrearCita(repositorioCita, daoMascota, daoCita);
+        Long idCita = servicioCrearCita.ejecutar(cita);
+        assertEquals(0L, idCita);
+        Mockito.verify(repositorioCita, Mockito.times(1)).crear(cita);
+    }*/
 }

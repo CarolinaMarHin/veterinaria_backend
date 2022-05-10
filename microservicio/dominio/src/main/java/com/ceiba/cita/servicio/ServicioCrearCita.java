@@ -22,8 +22,8 @@ public class ServicioCrearCita {
     private final DaoMascota daoMascota;
     private final DaoCita daoCita;
 
-    public ServicioCrearCita(RepositorioCita repositorioMascota, DaoMascota daoMascota, DaoCita daoCita) {
-        this.repositorioCita = repositorioMascota;
+    public ServicioCrearCita(RepositorioCita repositorioCita, DaoMascota daoMascota, DaoCita daoCita) {
+        this.repositorioCita = repositorioCita;
         this.daoMascota = daoMascota;
         this.daoCita = daoCita;
     }
@@ -32,7 +32,6 @@ public class ServicioCrearCita {
         validarCantidadDeCitasAsignadasVeterninario(cita);
         cita = validarDescuentoPorCumpleaniosMascota(cita);
         cita = validarDiaDeBanioGratis(cita);
-
         return this.repositorioCita.crear(cita);
     }
 

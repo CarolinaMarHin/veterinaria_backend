@@ -1,0 +1,1 @@
+SELECT s.id, s.nombre_servicio, s.precio_servicio FROM servicio AS s;
