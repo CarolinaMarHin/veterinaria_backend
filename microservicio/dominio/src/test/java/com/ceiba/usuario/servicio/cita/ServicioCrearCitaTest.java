@@ -86,6 +86,27 @@ public class ServicioCrearCitaTest {
     }
 
     @Test
+    @DisplayName("No deberia realizar descuento si es el cumpleanios de la mascota MES")
+    void noDeberiaRealizarDescuentoPorCumpleaniosDeLaMascotaMes() {
+        Cita cita = new CitaTestDataBuilder().build();
+
+        DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now().plusMonths(1), 30);
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now());
+        DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
+                180000, LocalDateTime.now());
+
+        RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
+        DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
+        DaoCita daoCita = Mockito.mock(DaoCita.class);
+        Mockito.when(repositorioCita.existe(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(daoMascota.listarPorId(Mockito.eq(cita.getCodigoMascota()))).thenReturn(dtoMascota);
+        ServicioCrearCita servicioCrearCita = new ServicioCrearCita(repositorioCita, daoMascota, daoCita);
+        Long idCita = servicioCrearCita.ejecutar(cita);
+        Mockito.when(daoCita.listarPorId(Mockito.eq(idCita))).thenReturn(dtoCita);
+        assertNotEquals(citaRespuesta.getTotalPago(), dtoCita.getTotalPago());
+    }
+
+    @Test
     @DisplayName("Deberia dejar gratis el sexto baño")
     void deberiaDejarBañoSextoGratis() {
         Cita cita = new CitaTestDataBuilder().build();
