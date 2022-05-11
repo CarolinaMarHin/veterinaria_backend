@@ -21,7 +21,7 @@ public class DaoMascotaMysql implements DaoMascota {
     private static String sqlListarMascotaPorId;
 
     @SqlStatement(namespace = "mascota", value = "obtenerMascota")
-    private static String sqlListarMascotaPorCodigoNombre;
+    private static String sqlListarMascotaPorCodigo;
 
     public DaoMascotaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -45,7 +45,7 @@ public class DaoMascotaMysql implements DaoMascota {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("codigoMascota", codigoMascota);
 
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlListarMascotaPorCodigoNombre,
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlListarMascotaPorCodigo,
                 paramSource, new MapeoMascota());
     }
 }

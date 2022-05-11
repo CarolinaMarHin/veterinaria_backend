@@ -7,6 +7,7 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class DaoCitaMysql implements DaoCita {
     }
 
     @Override
-    public List<DtoCita> listarCitasPorVeterinario(Long idVeterinario, LocalDateTime fecha) {
+    public List<DtoCita> listarCitasPorVeterinario(Long idVeterinario, LocalDate fecha) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idVeterinario", idVeterinario);
         paramSource.addValue("fecha", fecha);

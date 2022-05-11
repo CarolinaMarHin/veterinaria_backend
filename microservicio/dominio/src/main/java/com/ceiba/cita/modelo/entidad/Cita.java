@@ -5,7 +5,7 @@ import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import lombok.Getter;
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
@@ -23,10 +23,10 @@ public class Cita {
     private Long idVeterinario;
     private Long codigoServicio;
     private double totalPago;
-    LocalDateTime fecha;
+    LocalDate fecha;
 
     public Cita(Long id, Long codigoMascota, Long idVeterinario, Long codigoServicio, double totalPago,
-                LocalDateTime fecha
+                LocalDate fecha
     ) {
 
         validarObligatorio(codigoMascota,SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_MASCOTA);
@@ -45,9 +45,9 @@ public class Cita {
         this.fecha = fecha;
     }
 
-    private static void validarEsFinDeSenama(LocalDateTime fecha) {
-        if (fecha.toLocalDate().getDayOfWeek() == DayOfWeek.SATURDAY
-                || fecha.toLocalDate().getDayOfWeek() == DayOfWeek.SUNDAY
+    private static void validarEsFinDeSenama(LocalDate fecha) {
+        if (fecha.getDayOfWeek() == DayOfWeek.SATURDAY
+                || fecha.getDayOfWeek() == DayOfWeek.SUNDAY
         ) {
             throw new ExcepcionValorInvalido(LO_SENTIMOS_NO_HAY_SERVICIO_LOS_FINES_DE_SEMANA);
         }

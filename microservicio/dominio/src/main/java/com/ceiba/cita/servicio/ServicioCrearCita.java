@@ -36,8 +36,8 @@ public class ServicioCrearCita {
         DtoMascota mascota = daoMascota.listarPorId(cita.getCodigoMascota());
         double totalPagarConDescuento = cita.getTotalPago();
 
-        if (cita.getFecha().toLocalDate().getMonth() == mascota.getFechaNacimientoMascota().getMonth()
-                && cita.getFecha().toLocalDate().getDayOfMonth() == mascota.getFechaNacimientoMascota().getDayOfMonth()) {
+        if (cita.getFecha().getMonth() == mascota.getFechaNacimientoMascota().getMonth()
+                && cita.getFecha().getDayOfMonth() == mascota.getFechaNacimientoMascota().getDayOfMonth()) {
             totalPagarConDescuento -= (cita.getTotalPago() * PORCENTAJE_DESCUENTO_POR_CUMPLEANIOS) / 100;
         }
         return new Cita(cita.getId(),
