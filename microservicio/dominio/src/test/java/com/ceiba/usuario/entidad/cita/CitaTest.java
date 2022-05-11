@@ -8,6 +8,7 @@ import com.ceiba.usuario.servicio.testdatabuilder.cita.CitaTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 
@@ -18,7 +19,7 @@ public class CitaTest {
     @Test
     @DisplayName("Deberia crear correctamente la cita")
     void deberiaCrearCorrectamenteLaCita() {
-        LocalDateTime fechaCita = LocalDateTime.now();
+        LocalDate fechaCita = LocalDate.now();
         Cita cita = new CitaTestDataBuilder().conFecha(fechaCita).conId(1L).build();
         assertEquals(1, cita.getId());
         assertEquals(1, cita.getCodigoMascota());
@@ -66,7 +67,7 @@ public class CitaTest {
 
     @Test
     void deberiaFallarSiLaFechaEsUnSabado() {
-        LocalDateTime diaFinDeSemana = LocalDateTime.of(2022, Month.APRIL, 30, 10, 10, 30);
+        LocalDate diaFinDeSemana = LocalDate.of(2022, Month.APRIL, 30);
 
         CitaTestDataBuilder citaTestDataBuilder = new CitaTestDataBuilder().conFinDeSemana(diaFinDeSemana).conId(1L);
         BasePrueba.assertThrows(() -> {
@@ -77,7 +78,7 @@ public class CitaTest {
 
     @Test
     void deberiaFallarSiLaFechaEsUnDomingo() {
-        LocalDateTime diaFinDeSemana = LocalDateTime.of(2022, Month.MAY, 1, 10, 10, 30);
+        LocalDate diaFinDeSemana = LocalDate.of(2022, Month.MAY, 1);
 
         CitaTestDataBuilder citaTestDataBuilder = new CitaTestDataBuilder().conFinDeSemana(diaFinDeSemana).conId(1L);
         BasePrueba.assertThrows(() -> {

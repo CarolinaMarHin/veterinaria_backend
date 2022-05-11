@@ -49,7 +49,7 @@ public class ServicioCrearCitaTest {
         Cita cita = new CitaTestDataBuilder().build();
 
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now().plusDays(2), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now().plusDays(2));
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDate.now().plusDays(2));
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 171000, LocalDateTime.now());
 
@@ -70,7 +70,7 @@ public class ServicioCrearCitaTest {
         Cita cita = new CitaTestDataBuilder().build();
 
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now());
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDate.now());
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 180000, LocalDateTime.now());
 
@@ -91,7 +91,7 @@ public class ServicioCrearCitaTest {
         Cita cita = new CitaTestDataBuilder().build();
 
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now().plusMonths(1), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDateTime.now());
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 171000, LocalDate.now());
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 180000, LocalDateTime.now());
 
@@ -119,7 +119,7 @@ public class ServicioCrearCitaTest {
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 0, LocalDateTime.now());
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 0, LocalDateTime.now());
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 0, LocalDate.now());
         RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         DaoCita daoCita = Mockito.mock(DaoCita.class);
@@ -145,7 +145,7 @@ public class ServicioCrearCitaTest {
         DtoCita dtoCita = new DtoCita(1L, "Titan", "Carolina", "Servicio banio",
                 170000, LocalDateTime.now());
         DtoMascota dtoMascota = new DtoMascota(1L, "1234", "Titan", "Husky", LocalDate.now(), 30);
-        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 0, LocalDateTime.now());
+        Cita citaRespuesta = new Cita(1L, 1L, 1L,1L, 0, LocalDate.now());
         RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);
         DaoMascota daoMascota = Mockito.mock(DaoMascota.class);
         DaoCita daoCita = Mockito.mock(DaoCita.class);

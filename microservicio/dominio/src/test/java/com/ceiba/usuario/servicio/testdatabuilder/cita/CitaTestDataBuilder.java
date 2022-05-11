@@ -2,6 +2,7 @@ package com.ceiba.usuario.servicio.testdatabuilder.cita;
 
 import com.ceiba.cita.modelo.entidad.Cita;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class CitaTestDataBuilder {
@@ -11,14 +12,14 @@ public class CitaTestDataBuilder {
     private Long idVeterinario;
     private Long codigoServicio;
     private double totalPago;
-    LocalDateTime fecha;
+    LocalDate fecha;
 
     public CitaTestDataBuilder() {
         codigoMascota = 1L;
         idVeterinario = 1L;
         codigoServicio = 1L;
         totalPago = 200000;
-        fecha = LocalDateTime.now().plusDays(2);
+        fecha = LocalDate.now().plusDays(2);
     }
 
     public CitaTestDataBuilder conId(Long id) {
@@ -41,12 +42,12 @@ public class CitaTestDataBuilder {
         return this;
     }
 
-    public CitaTestDataBuilder conFecha(LocalDateTime fecha) {
+    public CitaTestDataBuilder conFecha(LocalDate fecha) {
         this.fecha = fecha;
         return this;
     }
 
-    public CitaTestDataBuilder conFinDeSemana(LocalDateTime fecha) {
+    public CitaTestDataBuilder conFinDeSemana(LocalDate fecha) {
         this.fecha = fecha;
         return this;
     }
