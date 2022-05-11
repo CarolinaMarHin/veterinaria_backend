@@ -2,7 +2,7 @@ package com.ceiba.usuario.servicio.testdatabuilder.cita;
 
 import com.ceiba.cita.comando.ComandoCita;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ComandoCitaTestDataBuilder {
 
@@ -11,14 +11,14 @@ public class ComandoCitaTestDataBuilder {
     private Long idVeterinario;
     private Long codigoServicio;
     private double totalPago;
-    LocalDateTime fecha;
+    LocalDate fecha;
 
     public ComandoCitaTestDataBuilder() {
         codigoMascota = 1L;
         idVeterinario = 2L;
         codigoServicio = 1L;
         totalPago = 33000;
-        fecha = LocalDateTime.now();
+        fecha = LocalDate.now();
     }
 
     public ComandoCita build() {
