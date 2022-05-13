@@ -9,19 +9,19 @@ public class ServicioCrearMascota {
 
     private static final String LA_MASCOTA_YA_EXISTE_EN_EL_SISTEMA = "La mascota ya existe en el sistema";
 
-    private final RepositorioMascota repositorioUsuario;
+    private final RepositorioMascota repositorioMascota;
 
     public ServicioCrearMascota(RepositorioMascota repositorioMascota) {
-        this.repositorioUsuario = repositorioMascota;
+        this.repositorioMascota = repositorioMascota;
     }
 
     public Long ejecutar(Mascota mascota) {
         validarExistenciaPrevia(mascota);
-        return this.repositorioUsuario.crear(mascota);
+        return this.repositorioMascota.crear(mascota);
     }
 
     private void validarExistenciaPrevia(Mascota mascota) {
-        boolean existe = this.repositorioUsuario.existe(mascota.getCodigoMascota());
+        boolean existe = this.repositorioMascota.existe(mascota.getCodigoMascota());
         if (existe) {
             throw new ExcepcionDuplicidad(LA_MASCOTA_YA_EXISTE_EN_EL_SISTEMA);
         }
