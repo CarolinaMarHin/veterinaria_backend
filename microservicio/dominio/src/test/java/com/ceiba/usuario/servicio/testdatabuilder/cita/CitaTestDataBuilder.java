@@ -19,7 +19,7 @@ public class CitaTestDataBuilder {
         idVeterinario = 1L;
         codigoServicio = 1L;
         totalPago = 200000;
-        fecha = LocalDate.now().plusDays(2);
+        fecha = LocalDate.of(2022, 05, 12);
     }
 
     public CitaTestDataBuilder conId(Long id) {
